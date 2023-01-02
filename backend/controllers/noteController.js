@@ -8,7 +8,14 @@ const getAllNotes = async (req, res) => {
 };
 
 const getNoteById = async (req, res) => {
-  res.send("Get Note By Id");
+    const { id } = req.params;
+  const note = await Note.findById(id);
+
+  if (!note) {
+    throw new BadRequestError("Post Does Not Exist Or Has Been Deleted");
+  }
+
+  res.status(StatusCodes.OK).json(note);
 };
 
 const createNote = async (req, res) => {
