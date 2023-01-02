@@ -6,6 +6,7 @@ const app = express();
 const connectDB = require('./config/db')
 const userRoutes = require('./routes/userRoutes')
 const noteRoutes = require('./routes/noteRoutes')
+const authMiddleware = require('./middleware/authMiddleware')
 
 //Connecting To MongoDb
 connectDB()
@@ -20,7 +21,7 @@ app.get("/", (req, res) => {
 });
 
 app.use('/api/v1/user' , userRoutes)
-app.use('/api/v1/note' , noteRoutes)
+app.use('/api/v1/note' , authMiddleware, noteRoutes)
 
 const port = process.env.PORT || 5000
 app.listen(port, () => console.log(`Server Listening On Port ${port}`));
