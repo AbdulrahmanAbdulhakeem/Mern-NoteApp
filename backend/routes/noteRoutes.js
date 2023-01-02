@@ -10,3 +10,5 @@ const {
 
 router.route('/').get(getAllNotes).post(createNote)
 router.route('/:id').get(getNoteById).patch(updateNote).delete(deleteNote)
+
+module.exports = router
