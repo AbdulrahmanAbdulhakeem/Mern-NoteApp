@@ -1,14 +1,18 @@
 const express = require("express");
-const userModel = require("../models/userModel");
+const User = require("../models/userModel");
 const { StatusCodes } = require("http-status-codes");
 
+
+//@desc Register
+//@route POST /api/v1/user/register
+//access Public
 const registerUser = async (req, res) => {
   const { email } = req.body;
-  const checkUser = await userModel.findOne({ email });
+  const checkUser = await User.findOne({ email });
 
   if (checkUser) throw new BadRequestError("Email Is Already Used");
 
-  const user = await userModel.create({ ...req.body });
+  const user = await User.create({ ...req.body });
   const token = user.createJWT();
 
   res.status(StatusCodes.CREATED).json({
@@ -20,8 +24,11 @@ const registerUser = async (req, res) => {
   });
 };
 
+//@desc Login
+//@route POST /api/v1/user/login
+//access Public
 const login = (req, res) => {
-  res.send("Logging in");
+    
 };
 
 module.exports = {
