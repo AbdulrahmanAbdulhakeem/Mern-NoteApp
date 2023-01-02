@@ -19,7 +19,6 @@ const registerUser = async (req, res) => {
     _id: user.id,
     name: user.name,
     email: user.email,
-    imageUrl: user.imageUrl,
     token,
   });
 };
@@ -52,7 +51,6 @@ const login = async (req, res) => {
     _id: user.id,
     name: user.name,
     email: user.email,
-    imageUrl: user.imageUrl,
     token,
   });
 };
