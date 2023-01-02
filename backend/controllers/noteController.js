@@ -1,6 +1,6 @@
 const express = require("express");
 const Note = require("../models/noteModel");
-const {StatusCodes} = require('http-status-codes')
+const { StatusCodes } = require("http-status-codes");
 
 const getAllNotes = async (req, res) => {
   const notes = await Note.find();
@@ -8,7 +8,7 @@ const getAllNotes = async (req, res) => {
 };
 
 const getNoteById = async (req, res) => {
-    const { id } = req.params;
+  const { id } = req.params;
   const note = await Note.findById(id);
 
   if (!note) {
@@ -19,7 +19,9 @@ const getNoteById = async (req, res) => {
 };
 
 const createNote = async (req, res) => {
-  res.send("Create Note");
+  req.body.createdBy = req.user._id;
+  const note = await Note.create(req.body);
+  res.status(StatusCodes.CREATED).json(note);
 };
 
 const updateNote = async (req, res) => {
