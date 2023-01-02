@@ -1,8 +1,13 @@
 require("dotenv").config();
 require("express-async-errors");
 const express = require("express");
+const colors = require('colors')
 const app = express();
+const connectDB = require('./config/db')
 const userRoutes = require('./routes/userRoutes')
+
+//Connecting To MongoDb
+connectDB()
 
 //Middleware
 app.use(express.json());
