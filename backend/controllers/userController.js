@@ -27,7 +27,7 @@ const registerUser = async (req, res) => {
 //@desc Login
 //@route POST /api/v1/user/login
 //access Public
-const login = (req, res) => {
+const login = async(req, res) => {
     const { email, password } = req.body;
 
   if (!email || !password) {
