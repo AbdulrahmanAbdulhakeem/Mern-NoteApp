@@ -3,11 +3,17 @@ const Note = require("../models/noteModel");
 const { BadRequestError, UnAuthenticatedError } = require("../errors");
 const { StatusCodes } = require("http-status-codes");
 
+//@desc getAllNotes
+//@route GET /api/v1/note
+//access Private
 const getAllNotes = async (req, res) => {
   const notes = await Note.find();
   res.status(StatusCodes.OK).json(notes);
 };
 
+//@desc getNoteById
+//@route GET /api/v1/note/:id
+//access Private
 const getNoteById = async (req, res) => {
   const { id } = req.params;
   const note = await Note.findById(id);
@@ -19,12 +25,18 @@ const getNoteById = async (req, res) => {
   res.status(StatusCodes.OK).json(note);
 };
 
+//@desc createNote
+//@route POST /api/v1/note
+//access Private
 const createNote = async (req, res) => {
   req.body.createdBy = req.user._id;
   const note = await Note.create(req.body);
   res.status(StatusCodes.CREATED).json(note);
 };
 
+//@desc updateNote
+//@route PATCH /api/v1/note/:id
+//access Private
 const updateNote = async (req, res) => {
     const {
         user: { id: userId },
@@ -54,6 +66,9 @@ const updateNote = async (req, res) => {
       res.status(StatusCodes.OK).json(updatedNote);
 };
 
+//@desc deleteNote
+//@route DELETE /api/v1/note/:id
+//access Private
 const deleteNote = async (req, res) => {
   res.send("Deleted");
 };
