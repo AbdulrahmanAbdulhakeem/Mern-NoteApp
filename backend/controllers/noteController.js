@@ -1,8 +1,10 @@
-const { response } = require("express");
 const express = require("express");
+const Note = require("../models/noteModel");
+const {StatusCodes} = require('http-status-codes')
 
 const getAllNotes = async (req, res) => {
-  res.send("All Notes");
+  const notes = await Note.find();
+  res.status(StatusCodes.OK).json(notes);
 };
 
 const getNoteById = async (req, res) => {
