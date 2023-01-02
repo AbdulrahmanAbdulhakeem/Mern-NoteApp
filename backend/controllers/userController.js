@@ -27,8 +27,8 @@ const registerUser = async (req, res) => {
 //@desc Login
 //@route POST /api/v1/user/login
 //access Public
-const login = async(req, res) => {
-    const { email, password } = req.body;
+const login = async (req, res) => {
+  const { email, password } = req.body;
 
   if (!email || !password) {
     throw new BadRequestError("Provide Valid Credentials");
@@ -52,7 +52,7 @@ const login = async(req, res) => {
     _id: user.id,
     name: user.name,
     email: user.email,
-    imageUrl:user.imageUrl,
+    imageUrl: user.imageUrl,
     token,
   });
 };
