@@ -7,6 +7,7 @@ const connectDB = require('./config/db')
 const userRoutes = require('./routes/userRoutes')
 const noteRoutes = require('./routes/noteRoutes')
 const authMiddleware = require('./middleware/authMiddleware')
+const notFoundMiddleware = require('./middleware/not-found')
 
 //Connecting To MongoDb
 connectDB()
@@ -22,6 +23,8 @@ app.get("/", (req, res) => {
 
 app.use('/api/v1/user' , userRoutes)
 app.use('/api/v1/note' ,authMiddleware, noteRoutes)
+
+app.use(notFoundMiddleware)
 
 const port = process.env.PORT || 5000
 app.listen(port, () => console.log(`Server Listening On Port ${port}`));
