@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 });
 
 app.use('/api/v1/user' , userRoutes)
-app.use('/api/v1/note' , authMiddleware, noteRoutes)
+app.use('/api/v1/note' ,authMiddleware, noteRoutes)
 
 const port = process.env.PORT || 5000
 app.listen(port, () => console.log(`Server Listening On Port ${port}`));
