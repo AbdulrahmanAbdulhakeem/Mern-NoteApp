@@ -15,7 +15,7 @@ function Header({ darkMode, toggleDarkMode }) {
         <div>
           <h1 className="text-lg">Note Book</h1>
         </div>
-        <div className="">{darkMode ? <BsMoonFill onClick={toggleDarkMode} /> : <BsSun onClick={toggleDarkMode} />}</div>
+        <div className="">{darkMode ? <BsMoonFill size={20} onClick={toggleDarkMode}/> : <BsSun size={20} onClick={toggleDarkMode} />}</div>
       </div>
     </div>
   );
