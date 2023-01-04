@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Header from "./components/Header";
+import { Header } from "./components";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
@@ -9,9 +9,20 @@ function App() {
   }
 
   return (
-    <div className={`h-full w-full mx-auto py-2 
-    ${darkMode ? "dark" : ""}`} >
-      <Header />
+    <div className= {`${darkMode ? "dark" : ""}`} >
+      <Header darkMode = {darkMode} toggleDarkMode = {toggleDarkMode} />
+
+      <p>Piuussi</p>
+      <h1>bgbgb</h1>
+      <h1>bgbgb</h1>
+      <h1>bgbgb</h1>
+      <h1>bgbgb</h1>
+      <h1>bgbgb</h1>
+      <h1>bgbgb</h1>
+      <h1>bgbgb</h1>
+      <h1>bgbgb</h1>
+      <h1>bgbgb</h1>
+      <h1>bgbgb</h1>
     </div>
   );
 }

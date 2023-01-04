@@ -4,4 +4,5 @@
 
 .dark {
     @apply bg-gray-800 text-zinc-50;
+    transition-duration: 2s;
  }
