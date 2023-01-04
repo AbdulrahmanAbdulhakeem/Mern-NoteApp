@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Header } from "./components";
+import { Register } from "./pages";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
@@ -14,18 +15,12 @@ function App() {
   return (
     <div className= {`${darkMode ? "dark" : ""}`} >
       <Header darkMode = {darkMode} toggleDarkMode = {toggleDarkMode} />
-
-      <p>Piuussi</p>
-      <h1>bgbgb</h1>
-      <h1>bgbgb</h1>
-      <h1>bgbgb</h1>
-      <h1>bgbgb</h1>
-      <h1>bgbgb</h1>
-      <h1>bgbgb</h1>
-      <h1>bgbgb</h1>
-      <h1>bgbgb</h1>
-      <h1>bgbgb</h1>
-      <h1>bgbgb</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </BrowserRouter>
+        <ToastContainer />
     </div>
   );
 }
