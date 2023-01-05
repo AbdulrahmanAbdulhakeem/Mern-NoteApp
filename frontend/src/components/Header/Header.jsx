@@ -1,11 +1,20 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { FaSignOutAlt,FaUserAlt } from "react-icons/fa";
 import { BsMoonFill, BsSun } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
 
 function Header({ darkMode, toggleDarkMode }) {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const { user } = useSelector((state) => state.auth);
+
+  const onLogout = () => {
+    dispatch(logout());
+    dispatch(reset());
+    navigate("/");
+  }
 
   return (
     <div>
