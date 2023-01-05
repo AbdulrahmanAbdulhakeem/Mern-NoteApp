@@ -2,6 +2,7 @@ require("dotenv").config();
 require("express-async-errors");
 const express = require("express");
 const colors = require('colors')
+const cors = require("cors");
 const app = express();
 const connectDB = require('./config/db')
 const userRoutes = require('./routes/userRoutes')
@@ -13,8 +14,10 @@ const notFoundMiddleware = require('./middleware/not-found')
 connectDB()
 
 //Middleware
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 
 //Routes
 app.use('/api/v1/user' , userRoutes)

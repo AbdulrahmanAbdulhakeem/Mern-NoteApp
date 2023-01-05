@@ -17,7 +17,7 @@ function App() {
       <Header darkMode = {darkMode} toggleDarkMode = {toggleDarkMode} />
       <BrowserRouter>
         <Routes>
-          <Route path="/register" element={<Register />} />
+          <Route path="/" element={<Register />} />
         </Routes>
       </BrowserRouter>
         <ToastContainer />
