@@ -81,6 +81,11 @@ function Register() {
     dispatch(login(userData));
   };
 
+  const registerSwap = (e) => {
+    e.preventDefault();
+    setIsRegister((reg) => !reg);
+  };
+
   return (
     <>
       <div className="container flex flex-col items-center my-10 p-10 bg-white rounded-lg border-t-8 border-slate-500 xl:w-1/2 ">
@@ -136,6 +141,30 @@ function Register() {
               <button onClick={demoLogin} className={style.button}>
                 Demo Login
               </button>
+            </div>
+            <div className="text-emerald-700">
+              {isRegister ? (
+                <p className="text-black text-lg text-center mt-3">
+                  Already A Member?&nbsp;
+                  <button
+                    onClick={(e) => registerSwap(e)}
+                    className="text-teal-700 hover:text-teal-900"
+                  >
+                    {" "}
+                    Login
+                  </button>
+                </p>
+              ) : (
+                <p className="text-black text-lg text-center mt-3">
+                  Not A Member Yet?&nbsp;
+                  <button
+                    onClick={(e) => registerSwap(e)}
+                    className="text-teal-700 hover:text-teal-900"
+                  >
+                    Register
+                  </button>
+                </p>
+              )}
             </div>
           </form>
         </div>
