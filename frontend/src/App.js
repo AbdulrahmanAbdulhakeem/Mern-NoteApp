@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Header } from "./components";
-import { Register } from "./pages";
+import { Home, Register } from "./pages";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
@@ -17,7 +17,8 @@ function App() {
       <Header darkMode = {darkMode} toggleDarkMode = {toggleDarkMode} />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Register />} />
+        <Route path="/" element={<Home />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </BrowserRouter>
         <ToastContainer />

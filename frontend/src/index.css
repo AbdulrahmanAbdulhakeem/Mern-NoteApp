@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 .dark {
-    @apply bg-gray-800 text-zinc-50;
+    @apply bg-gray-900 text-zinc-50;
+    height: 100vh;
     transition-duration: 2s;
  }
