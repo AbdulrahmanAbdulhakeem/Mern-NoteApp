@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useDispatch , useSelector} from "react-redux";
 import { FaUserAlt } from "react-icons/fa";
-import {register} from '../features/auth/authSlice'
+import {login, register} from '../features/auth/authSlice'
 
 function Register() {
-  const [isRegister, setIsRegister] = useState(true);
+  const [isRegister, setIsRegister] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -29,7 +29,14 @@ function Register() {
       };
 
       dispatch(register(userData));
-    } 
+    }else {
+      userData = {
+        email,
+        password,
+      };
+
+      dispatch(login(userData));
+    }
 
   }
 
